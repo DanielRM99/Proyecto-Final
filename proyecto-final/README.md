@@ -18,4 +18,11 @@ Una página web donde poder compartir contenido de mangas, animes, noticias, etc
     - Price: number,
     - Year: date 
 
+- Videogame
+    - Id: string,
+    - Name: string,
+    - Plataforma: string,
+    - Year: date,
+    - Price: number
+
 

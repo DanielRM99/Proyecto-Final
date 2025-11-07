@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Manga from './pages/Manga.jsx'
 import Videojuego from './pages/Videojuego.jsx'
 
+
 const router = createBrowserRouter ([
   {
     path: "/",
@@ -18,7 +19,7 @@ const router = createBrowserRouter ([
       {
         path: "videojuego",
         element: <Videojuego />
-      }
+      },
       
     ]
   }
