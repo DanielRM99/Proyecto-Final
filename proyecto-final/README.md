@@ -5,7 +5,7 @@ Una página web donde poder compartir contenido de mangas, animes, noticias, etc
 
 ### Secciones
 - Manga - Daniel
-- Anime
+- Anime - Cristóbal 
 - Post/Noticias
 - Autores
 - Productos/Merchandising
