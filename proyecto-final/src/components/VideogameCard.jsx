@@ -10,6 +10,10 @@ export default function VidegameCard( {propsVideogame} ) {
       <p>{price}</p>
       <p>{platform}</p>
       <p>{year}</p>
+      <div>
+        <button>Eliminar</button>
+        <button>Editar</button>
+      </div>
     </div>
   );
 }
