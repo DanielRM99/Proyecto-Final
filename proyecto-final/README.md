@@ -23,6 +23,7 @@ Una página web donde poder compartir contenido de mangas, animes, noticias, etc
     - Name: string,
     - Plataforma: string,
     - Year: date,
-    - Price: number
+    - Price: number,
+    - Image: string
 
 

@@ -1,8 +1,8 @@
-function Manga() {
+function MangaPage() {
     return (
         <>
         <h1>Página Manga</h1>
         </>
     )
 }
-export default Manga
+export default MangaPage

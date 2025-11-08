@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Manga from './pages/Manga.jsx'
-import Videojuego from './pages/Videojuego.jsx'
+import Manga from './pages/MangaPage.jsx'
+import Videojuego from './pages/VideojuegoPage.jsx'
 
 
 const router = createBrowserRouter ([
