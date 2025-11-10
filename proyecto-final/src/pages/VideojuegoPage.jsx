@@ -5,16 +5,20 @@ import { useState } from "react";
 
 function VideojuegoPage() {
   const [gamesState, setGamesState] = useState(games);
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
   //let gamesState = games
-  console.log(gamesState)
+  //console.log(gamesState);
 
-  function deleteOne () {
-    const copy = [...gamesState]
-    copy.pop()
+  /**
+   * Función que elimina el último item.
+   * Primero se crea una copia del estado del array de objetos de juegos.
+   * y a la copia se le hace la función pop()
+   */
+  function deleteOne() {
+    const copy = [...gamesState];
+    copy.pop();
 
-    setGamesState(copy)
-    
+    setGamesState(copy);
   }
 
   /**
@@ -22,33 +26,65 @@ function VideojuegoPage() {
    * se crea una copia del gameState
    * se saca la id mayor
    * a gameAdd se agrega la id
-   * en la copi de agrega el objeto al copy y se cambia el estado.
-   * 
+   * en la copy de agrega el objeto al copy y se cambia el estado.
+   *
    */
-  function addGame(gameAdd){
-    const copy = [...gamesState]
-    const maxId = gamesState.length > 0 ? Math.max(...gamesState.map(g => g.id)) : 0;
-    console.log(maxId)
-    gameAdd.id = maxId + 1
-    copy.push(gameAdd)
+  function addGame(gameAdd) {
+    const copy = [...gamesState];
+    const maxId =
+      gamesState.length > 0 ? Math.max(...gamesState.map((g) => g.id)) : 0;
+    console.log(maxId);
+    gameAdd.id = maxId + 1;
+    copy.push(gameAdd);
 
-    setGamesState(copy)
+    setGamesState(copy);
   }
 
-  // agregar
-  function agregar(){
-    setShow(!show); 
-      
+  /**
+   * 
+   * Función que recibe una id y se filtra para se eliminada ese item.
+   */
+  function onDelete(id) {
+  //  console.log("funcion onDelete");
+ //   console.log(id);
+
+    let copy = gamesState.filter((game) => game.id !== id);
+    console.log(copy);
+    console.log("despues de filtar ondelete");
+    setGamesState(copy);
+  }
+  /**
+   * La función hace que aparezca un formulario para agregar un nuevo juego.
+   * El botón tiene un evento "onClick" que llama a está función
+   * Esta función cambia el valor de estado a verdadero o falso (si se pulsa más
+   * de una vez)
+   */
+  function agregar() {
+    setShow(!show);
   }
 
   return (
     <>
-      <h1>Página videojuego</h1>
-    {/*   {gamesState.map((game) => {
-        return <VidegameCard key={game.id} propsVideogame={game} />;
-      })} */}
-      <button onClick={() => deleteOne()}>Delete the last one</button>
-      <button onClick={() => agregar()}>Agregar</button>
+      <h1 className="videojuego-h1">Página videojuego</h1>
+      <div className="videogame-list">
+        {/*     se lista los video juegos usando para ello la función map. 
+        recibe el valor de cada item y recibe la función para eliminar un item.*/}
+        {gamesState.map((game) => {
+          return (
+            <VidegameCard
+              key={game.id}
+              propsVideogame={game}
+              onDelete={onDelete}
+            />
+          );
+        })}
+      </div>
+      <div className="botonesVG">
+        <button onClick={() => deleteOne()}>Delete the last one</button>
+        <button onClick={() => agregar()}>
+          {show ? "Cerrar formulario" : "Agregar nuevo"}
+        </button>
+      </div>
 
       {/* muestra el formulario solo si show = true */}
       {show && <VideogameFormulario onAddGame={addGame} />}
