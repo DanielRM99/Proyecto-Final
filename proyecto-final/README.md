@@ -13,8 +13,10 @@ Una página web donde poder compartir contenido de mangas, animes, noticias, etc
 
 ### Datos 
 - Book 
-    - Id: string,
+    - Id: number,
+    - Name: string,
     - Author: string,
+    - Description: string,
     - Price: number,
     - Year: date 
 
