@@ -12,7 +12,7 @@ const games = [
   {
     id: 2,
     name: "The Legend of Zelda: Tears of the Kingdom",
-    image: "https://m.media-amazon.com/images/I/71h7N3ZP+CL.jpg",
+    image: "https://www.gamereactor.es/media/34/legendzelda_3863473_650x.jpg",
     price: 69.99,
     platform: "Switch",
     year: date.getFullYear()

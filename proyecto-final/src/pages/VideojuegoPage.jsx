@@ -1,12 +1,14 @@
 import VidegameCard from "../components/VideogameCard";
 import VideogameFormulario from "../components/VideogameFormulario";
+import VideogameUpdateFormulario from "../components/VideogameUpdateFormulario";
 import games from "../data/videogameData";
 import { useState } from "react";
 
 function VideojuegoPage() {
   const [gamesState, setGamesState] = useState(games);
   const [show, setShow] = useState(false);
-  //let gamesState = games
+  const [showUpdate, setShowUpdate] = useState(false);
+  
   //console.log(gamesState);
 
   /**
@@ -17,7 +19,6 @@ function VideojuegoPage() {
   function deleteOne() {
     const copy = [...gamesState];
     copy.pop();
-
     setGamesState(copy);
   }
 
@@ -36,23 +37,34 @@ function VideojuegoPage() {
     console.log(maxId);
     gameAdd.id = maxId + 1;
     copy.push(gameAdd);
-
     setGamesState(copy);
   }
 
   /**
-   * 
+   *
    * Función que recibe una id y se filtra para se eliminada ese item.
    */
   function onDelete(id) {
-  //  console.log("funcion onDelete");
- //   console.log(id);
+    //  console.log("funcion onDelete");
+    //   console.log(id);
 
     let copy = gamesState.filter((game) => game.id !== id);
     console.log(copy);
     console.log("despues de filtar ondelete");
     setGamesState(copy);
   }
+
+   function mostrarUpdate(){
+      setShowUpdate(!showUpdate)
+    }
+
+  /** funcion para actualizar un item */
+
+  function onUpdate(id) {
+    console.log(id);
+   mostrarUpdate()
+  }
+
   /**
    * La función hace que aparezca un formulario para agregar un nuevo juego.
    * El botón tiene un evento "onClick" que llama a está función
@@ -75,10 +87,13 @@ function VideojuegoPage() {
               key={game.id}
               propsVideogame={game}
               onDelete={onDelete}
+              onUpdate={onUpdate}
             />
           );
         })}
       </div>
+        {/* muestra el formulario solo si show = true */}
+        {showUpdate && <VideogameUpdateFormulario onUpdateGame={onUpdate} />}
       <div className="botonesVG">
         <button onClick={() => deleteOne()}>Delete the last one</button>
         <button onClick={() => agregar()}>

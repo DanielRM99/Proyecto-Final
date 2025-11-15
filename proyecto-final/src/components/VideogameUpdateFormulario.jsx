@@ -1,33 +1,35 @@
-export default function VideogameFormulario({ onAddGame }) {
+export default function VideogameUpdateFormulario({ onUpdateGame, Game }) {
   /**
    * 
    * Función agregar un juego, se recupera los datos del formulario
    * y se guarda en gameAdd, que es un objeto.
    */
-  function agregarJuego(event) {
+
+  // tarea como hacer para traer el valor del del item para poder luego modificarlo.... 
+  function actualizarJuego(event) {
     event.preventDefault();
-    let gameAdd = {};
+    let gameUpdate = {};
 
-    gameAdd.name = event.target.name.value;
-    gameAdd.price = event.target.price.value;
-    gameAdd.plataform = event.target.plataform.value;
-    gameAdd.year = event.target.year.value;
-    gameAdd.image = event.target.image.value;
+    gameUpdate.name = event.target.name.value;
+    gameUpdate.price = event.target.price.value;
+    gameUpdate.plataform = event.target.plataform.value;
+    gameUpdate.year = event.target.year.value;
+    gameUpdate.image = event.target.image.value;
 
-    console.log(gameAdd);
-    onAddGame(gameAdd);
+    console.log(gameUpdate);
+    onUpdateGame(gameUpdate);
   }
   return (
     <div>
-      <h2>Agrega un video juego.</h2>
-      <form onSubmit={agregarJuego} action="" method="post">
+      <h2>Vamos a editar... </h2>
+      <form onSubmit={actualizarJuego} action="" method="post">
         <label htmlFor="name">Nombre:</label>
         <input
           type="text"
           name="name"
           id="name"
           required
-          placeholder="Nombre..."
+         
         />
 
         <label htmlFor="price">Precio:</label>
@@ -64,7 +66,7 @@ export default function VideogameFormulario({ onAddGame }) {
           id="image"
           placeholder="url imagen..."
         />
-        <input type="submit" value="Agregar" />
+        <input type="submit" value="Modificar" />
         {/* duda como pasar datos para que se pueda pintar en videojuegos
         idea: pasar los datos y cuando se agregue la id seria un +1
         a la última id que haya en la BBDD 
