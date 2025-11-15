@@ -19,7 +19,7 @@ export default function VideogameFormulario({ onAddGame }) {
   }
   return (
     <div>
-      <h2>Agrega un video juego.</h2>
+      <h2>Agrega un videojuego.</h2>
       <form onSubmit={agregarJuego} action="" method="post">
         <label htmlFor="name">Nombre:</label>
         <input
@@ -39,7 +39,15 @@ export default function VideogameFormulario({ onAddGame }) {
           placeholder="Precio..."
         />
 
-        <label htmlFor="gameAdd.price = event.target.price.value;">Plataforma:</label>
+        <label htmlFor="plataform">Plataforma:</label>
+       <select name="plataform" id="plataform" required>
+        <option value="switch">Switch</option>
+        <option value="switch2">Switch 2</option>
+        <option value="ps4">Playstation 4</option>
+        <option value="ps5">Playstation 5</option>
+        <option value="pc">PC</option>
+        <option value="xboxSerie">Xbox Series X</option>
+       </select>
         <input
           type="text"
           name="plataform"
