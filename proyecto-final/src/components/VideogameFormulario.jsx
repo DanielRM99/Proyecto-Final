@@ -8,11 +8,21 @@ export default function VideogameFormulario({ onAddGame }) {
     event.preventDefault();
     let gameAdd = {};
 
+
+    // Si la url esta vacia que ponga una imagen por defecto.
+    let url = event.target.image.value;
+
+    if (!url) {
+      url = "https://static.vecteezy.com/system/resources/previews/022/059/000/non_2x/no-image-available-icon-vector.jpg";
+    }
+
+    gameAdd.image = url;
     gameAdd.name = event.target.name.value;
     gameAdd.price = event.target.price.value;
     gameAdd.plataform = event.target.plataform.value;
     gameAdd.year = event.target.year.value;
-    gameAdd.image = event.target.image.value;
+    // gameAdd.image = event.target.image.value;
+
 
     console.log(gameAdd);
     onAddGame(gameAdd);
@@ -40,21 +50,15 @@ export default function VideogameFormulario({ onAddGame }) {
         />
 
         <label htmlFor="plataform">Plataforma:</label>
-       <select name="plataform" id="plataform" required>
-        <option value="switch">Switch</option>
-        <option value="switch2">Switch 2</option>
-        <option value="ps4">Playstation 4</option>
-        <option value="ps5">Playstation 5</option>
-        <option value="pc">PC</option>
-        <option value="xboxSerie">Xbox Series X</option>
-       </select>
-        <input
-          type="text"
-          name="plataform"
-          id="plataform"
-          required
-          placeholder="Plataforma..."
-        />
+        <select name="plataform" id="plataform" required>
+          <option value="switch">Switch</option>
+          <option value="switch2">Switch 2</option>
+          <option value="ps4">Playstation 4</option>
+          <option value="ps5">Playstation 5</option>
+          <option value="pc">PC</option>
+          <option value="xboxSerie">Xbox Series X</option>
+        </select>
+
 
         <label htmlFor="year">Año:</label>
         <input

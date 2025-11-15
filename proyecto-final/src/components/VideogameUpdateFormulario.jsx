@@ -1,11 +1,15 @@
-export default function VideogameUpdateFormulario({ onUpdateGame, Game }) {
+export default function VideogameUpdateFormulario({
+  onUpdateGame,
+  game,
+  onClose,
+}) {
   /**
-   * 
+   *
    * Función agregar un juego, se recupera los datos del formulario
    * y se guarda en gameAdd, que es un objeto.
    */
 
-  // tarea como hacer para traer el valor del del item para poder luego modificarlo.... 
+  // tarea como hacer para traer el valor del del item para poder luego modificarlo....
   function actualizarJuego(event) {
     event.preventDefault();
     let gameUpdate = {};
@@ -24,13 +28,7 @@ export default function VideogameUpdateFormulario({ onUpdateGame, Game }) {
       <h2>Vamos a editar... </h2>
       <form onSubmit={actualizarJuego} action="" method="post">
         <label htmlFor="name">Nombre:</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required
-         
-        />
+        <input type="text" name="name" id="name" required />
 
         <label htmlFor="price">Precio:</label>
         <input
@@ -41,14 +39,15 @@ export default function VideogameUpdateFormulario({ onUpdateGame, Game }) {
           placeholder="Precio..."
         />
 
-        <label htmlFor="gameAdd.price = event.target.price.value;">Plataforma:</label>
-        <input
-          type="text"
-          name="plataform"
-          id="plataform"
-          required
-          placeholder="Plataforma..."
-        />
+        <label htmlFor="plataform">Plataforma:</label>
+        <select name="plataform" id="plataform" required>
+          <option value="switch">Switch</option>
+          <option value="switch2">Switch 2</option>
+          <option value="ps4">Playstation 4</option>
+          <option value="ps5">Playstation 5</option>
+          <option value="pc">PC</option>
+          <option value="xboxSerie">Xbox Series X</option>
+        </select>
 
         <label htmlFor="year">Año:</label>
         <input
@@ -66,23 +65,7 @@ export default function VideogameUpdateFormulario({ onUpdateGame, Game }) {
           id="image"
           placeholder="url imagen..."
         />
-        <input type="submit" value="Modificar" />
-        {/* duda como pasar datos para que se pueda pintar en videojuegos
-        idea: pasar los datos y cuando se agregue la id seria un +1
-        a la última id que haya en la BBDD 
-        
-        Para recoger los datos del form
-        1 se guarda en el mismo componente 
-        2 - se crea un propiedad en el form onSubmit
-        3 - se crea una función para capturar y guardar los datos en un 
-        objeto.
-        4 - se pasa por propiedad un función onAddGAme, y en la función agregarJuego
-        se agrega el objeto.
-        5 - en su padre, videogamePage en su etiqueta se recibe onAddGAme y
-        dentro se mete la función addGame.
-
-
-        */}
+        <input onClick={onClose} type="submit" value="Modificar" />
       </form>
     </div>
   );

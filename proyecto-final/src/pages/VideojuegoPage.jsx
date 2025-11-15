@@ -8,6 +8,7 @@ function VideojuegoPage() {
   const [gamesState, setGamesState] = useState(games);
   const [show, setShow] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
+
   
   //console.log(gamesState);
 
@@ -53,9 +54,19 @@ function VideojuegoPage() {
     console.log("despues de filtar ondelete");
     setGamesState(copy);
   }
-
+/**
+ * las funciones mostrarUpdate() y CerrarFormulario()
+ * abre al pulsar el botón editar y lo cierra si se pulsa el botón modificar.
+ * DUDA: pero no se si se llegaría a pasar los datos para poder modificar.
+ */
    function mostrarUpdate(){
-      setShowUpdate(!showUpdate)
+      //setShowUpdate(!showUpdate)
+      setShowUpdate(true)
+    }
+
+    // cerrar formulario de editar
+    function cerrarFormulario(){
+      setShowUpdate(false)
     }
 
   /** funcion para actualizar un item */
@@ -93,7 +104,7 @@ function VideojuegoPage() {
         })}
       </div>
         {/* muestra el formulario solo si show = true */}
-        {showUpdate && <VideogameUpdateFormulario onUpdateGame={onUpdate} />}
+       {showUpdate && <VideogameUpdateFormulario onUpdateGame={onUpdate} onClose={cerrarFormulario}/>}
       <div className="botonesVG">
         <button onClick={() => deleteOne()}>Delete the last one</button>
         <button onClick={() => agregar()}>

@@ -1,6 +1,6 @@
 const date = new Date();
 
-const games = [
+let games = [
   {
     id: 1,
     name: "Animal Crossing: New Horizons",
