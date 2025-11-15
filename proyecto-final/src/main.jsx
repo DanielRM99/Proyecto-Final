@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Manga from './pages/Manga.jsx'
-import Videojuego from './pages/Videojuego.jsx'
+import VideojuegoPage from './pages/VideojuegoPage.jsx'
 import Anime from './pages/Anime.jsx'
+import MangaPage from './pages/MangaPage.jsx'
 
 
 const router = createBrowserRouter ([
@@ -15,14 +15,18 @@ const router = createBrowserRouter ([
     children: [
       {
         index: true,
-        element: <Manga />
+        element: <MangaPage />
       },
       {
-        path: "Videojuego",
-        element: <Videojuego />
+        path: "manga",
+        element: <MangaPage />
       },
       {
-        path:"Anime",
+        path: "videojuego",
+        element: <VideojuegoPage />
+      },
+      {
+        path:"anime",
         element: <Anime/>
       },
       
