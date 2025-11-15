@@ -1,15 +1,29 @@
-export default function VidegameCard( {propsVideogame} ) {
+/*
+se pasa al padre el onDelete*/
+export default function VidegameCard({ propsVideogame, onDelete, onUpdate }) {
   const { id, name, price, image, platform, year } = propsVideogame;
   // Estos es lo mimso que el
   // const id = propsVideogame.id
+
+  
   return (
-    <div>
-      <p>{id}</p>
-      <p>{name}</p>
-      <img src={image} alt="" />
-      <p>{price}</p>
-      <p>{platform}</p>
-      <p>{year}</p>
-    </div>
+  
+      <div className="cardVideoGame">
+        <div>
+          <p>ID: {id}</p>
+          <p>Nombre: {name}</p>
+          <p>Precio: {price} €</p>
+        </div>
+        <div>
+          <p>Plataforma: {platform}</p>
+          <p>Años: {year}</p>
+        </div>
+        <img src={image} alt={name} />
+        <div>
+      {/*  Se pasa con el evento la id del item donde el botón. */}
+          <button onClick={() => onDelete(id)}>Eliminar</button>
+          <button onClick={() => onUpdate(id)}>Editar</button>
+        </div>
+      </div>
   );
 }
