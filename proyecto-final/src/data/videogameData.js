@@ -1,5 +1,7 @@
 const date = new Date();
 
+// en el año poner por ahora solo el año para poder manejarlo
+
 let games = [
   {
     id: 1,
@@ -7,7 +9,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/71sT6IkxThL._AC_SL1000_.jpg",
     price: 69.99,
     platform: "Switch",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 2,
@@ -15,7 +17,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81uIdB9nHdL._AC_SL1500_.jpg",
     price: 69.99,
     platform: "Switch",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 3,
@@ -23,7 +25,7 @@ let games = [
     image:"https://m.media-amazon.com/images/I/71zMdXzQuqL._AC_SL1200_.jpg",
     price: 59.99,
     platform: "Switch",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 4,
@@ -31,7 +33,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/713s0jIXwmL._AC_SX342_SY445_QL70_ML2_.jpg",
     price: 59.99,
     platform: "Switch",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 5,
@@ -39,7 +41,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/71C9pOGlKtL._AC_SL1421_.jpg",
     price: 59.99,
     platform: "Switch",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 6,
@@ -47,7 +49,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81pkkayI3+L._AC_SL1500_.jpg",
     price: 69.99,
     platform: "PlayStation 5",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 7,
@@ -55,7 +57,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/814wINlWcrL._AC_SL1500_.jpg",
     price: 69.99,
     platform: "PlayStation 5",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 8,
@@ -63,7 +65,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/812IzM0xGsL._AC_SL1500_.jpg",
     price: 69.99,
     platform: "PlayStation 5",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 9,
@@ -71,7 +73,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81DC-janmJL._AC_SL1500_.jpg",
     price: 69.99,
     platform: "PlayStation 5",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 10,
@@ -79,7 +81,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81b7pJqCp8L._AC_SL1500_.jpg",
     price: 59.99,
     platform: "PlayStation 5",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 11,
@@ -87,7 +89,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81nWynmiDPL._AC_SL1500_.jpg",
     price: 59.99,
     platform: "Xbox Series X",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 12,
@@ -95,7 +97,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81LHYZ3G4lL._AC_SL1470_.jpg",
     price: 59.99,
     platform: "Xbox Series X",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 13,
@@ -103,7 +105,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81gQi5CLHAL._AC_SL1500_.jpg",
     price: 69.99,
     platform: "Xbox Series X",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 14,
@@ -111,7 +113,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/81xFgFFptML._AC_SL1500_.jpg",
     price: 49.99,
     platform: "PC",
-    year: date.getFullYear()
+    year: 2020
   },
   {
     id: 15,
@@ -119,7 +121,7 @@ let games = [
     image: "https://m.media-amazon.com/images/I/717FrMQ1CzL._AC_SL1500_.jpg",
     price: 59.99,
     platform: "PC",
-    year: date.getFullYear()
+    year: 2020
   }
   ];
   

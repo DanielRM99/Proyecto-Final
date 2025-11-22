@@ -8,8 +8,10 @@ function VideojuegoPage() {
   const [gamesState, setGamesState] = useState(games);
   const [show, setShow] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
+  // guarda un solo videojuego (editar)
+  const [editGame, setEditGame] = useState(null);
+//  console.log(editGame);
 
-  
   //console.log(gamesState);
 
   /**
@@ -35,7 +37,7 @@ function VideojuegoPage() {
     const copy = [...gamesState];
     const maxId =
       gamesState.length > 0 ? Math.max(...gamesState.map((g) => g.id)) : 0;
-    console.log(maxId);
+    //console.log(maxId);
     gameAdd.id = maxId + 1;
     copy.push(gameAdd);
     setGamesState(copy);
@@ -50,30 +52,43 @@ function VideojuegoPage() {
     //   console.log(id);
 
     let copy = gamesState.filter((game) => game.id !== id);
-    console.log(copy);
-    console.log("despues de filtar ondelete");
+    //console.log(copy);
+    //console.log("despues de filtar ondelete");
     setGamesState(copy);
   }
-/**
- * las funciones mostrarUpdate() y CerrarFormulario()
- * abre al pulsar el botón editar y lo cierra si se pulsa el botón modificar.
- * DUDA: pero no se si se llegaría a pasar los datos para poder modificar.
- */
-   function mostrarUpdate(){
-      //setShowUpdate(!showUpdate)
-      setShowUpdate(true)
-    }
+  /**
+   * las funciones mostrarUpdate() y CerrarFormulario()
+   * abre al pulsar el botón editar y lo cierra si se pulsa el botón modificar.
+   * DUDA: pero no se si se llegaría a pasar los datos para poder modificar.
+   */
+  function mostrarUpdate() {
+    //setShowUpdate(!showUpdate)
+    setShowUpdate(true);
+  }
 
-    // cerrar formulario de editar
-    function cerrarFormulario(){
-      setShowUpdate(false)
-    }
+  // cerrar formulario de editar
+  function cerrarFormulario() {
+    setShowUpdate(false);
+  }
 
   /** funcion para actualizar un item */
 
-  function onUpdate(id) {
-    console.log(id);
-   mostrarUpdate()
+  function handleUpdate(gameToUpdate) {
+   // console.log("El mensaje llega al padre")
+    // console.log(gameToUpdate);
+    setEditGame(gameToUpdate);
+    mostrarUpdate();
+  }
+
+
+  // función para actualizar el juego
+  function actualizarJuego(gameUpdate){
+    console.log("La info del juego actualizado al padre.")
+    console.log(gameUpdate)
+    const copy = [...gamesState];
+    const index = copy.findIndex(game => game.id === gameUpdate.id)
+    copy.splice(index, 1, gameUpdate);
+    setGamesState(copy)
   }
 
   /**
@@ -98,13 +113,23 @@ function VideojuegoPage() {
               key={game.id}
               propsVideogame={game}
               onDelete={onDelete}
-              onUpdate={onUpdate}
+              onUpdate={handleUpdate}
             />
           );
         })}
       </div>
-        {/* muestra el formulario solo si show = true */}
-       {showUpdate && <VideogameUpdateFormulario onUpdateGame={onUpdate} onClose={cerrarFormulario}/>}
+      {/* muestra el formulario solo si show = true
+        gameToUpdate={editGame} : con ello se pasa el item a editar al formulario. 
+        onUpdateGame={onUpdate} : actualiza el item
+        onClose={cerrarFormulario} : cierra formulario. */}
+      {showUpdate && (
+        <VideogameUpdateFormulario
+          gameToUpdate={editGame}
+          onClose={cerrarFormulario}
+          onUpdateGame={actualizarJuego}
+
+        />
+      )}
       <div className="botonesVG">
         <button onClick={() => deleteOne()}>Delete the last one</button>
         <button onClick={() => agregar()}>
